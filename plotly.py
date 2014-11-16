@@ -72,6 +72,7 @@ s2.open()
 SECOND_CHANNEL = False
 i = 0
 while True:
+    # For each readline, you get a string that's float1 float2\n
     x=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
     if SERIAL:
         line = ser.readline()
@@ -81,6 +82,8 @@ while True:
             data1 =  (float(line[0]) * 5 / 1023 )
             data2 =  (float(line[1]) * 5 / 1023 )
             print data1
+            # sends data to plotly. ONly send it every 5 cycles because
+            # plotly is too slow
             if(i%5 == 0):   s1.write( dict( x=x, y= data1 ))
             i += 1
 
