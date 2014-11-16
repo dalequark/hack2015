@@ -59,8 +59,28 @@ data1 = Data([trace1])
 data2 = Data([trace2])
 
 # Add title to layout object
-layout1 = Layout(title='EndoDermal Skin Response')
-layout2 = Layout(title='Heartrate')
+layout1 = Layout(title='EndoDermal Skin Response',
+    xaxis=XAxis(
+        title="Timestamp",
+        autorange=True
+    ),
+    yaxis=YAxis(
+        title="Volts",
+        autorange=False,
+        range=[0,5]
+    )
+)
+layout2 = Layout(title='HeartRate',
+    xaxis=XAxis(
+        title="Timestamp",
+        autorange=True
+    ),
+    yaxis=YAxis(
+        title="Beats per Minute",
+        autorange=False,
+        range=[40,100]
+    )
+)
 # Make a figure object
 fig1 = Figure(data=data1, layout=layout1)
 fig2 = Figure(data=data2, layout=layout2)
