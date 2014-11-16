@@ -53,8 +53,8 @@ $(document).ready(function() {
         $.get("./isaroused", function(data) {
           console.log("Got data " + data);
             if(data == "True"){
-              updatePicture();
               setAlarmColor();
+              updatePicture();
               setInterval(setNormalColor, 80);
               yoyoyoyoyoyoyo()
             }

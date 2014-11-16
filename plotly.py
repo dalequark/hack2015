@@ -7,6 +7,7 @@ import random
 import sys, serial
 import urllib2
 
+
 #Python backend server
 BACKEND_SERVER = 'http://127.0.0.1:5000'
 # Where to save data for this file
@@ -119,7 +120,7 @@ while True:
             deviation = abs(slidingWindow1[len(slidingWindow1) - 2] - (slidingWindow1[len(slidingWindow1) - 1] + slidingWindow1[len(slidingWindow1) - 3]) / 2)
             print "deviation "
             print deviation
-            if(slidingWindow1[len(slidingWindow1) - 2] - slidingWindow1[0] > .08 and deviation < .05):
+            if(slidingWindow1[len(slidingWindow1) - 2] - slidingWindow1[0] > .06 and deviation < .05):
                 #Send request to python server, alerting of event
                 print "Got trigger"
                 urllib2.urlopen(BACKEND_SERVER+"/trigger")

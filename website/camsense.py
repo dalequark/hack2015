@@ -38,7 +38,7 @@ def set_trigger():
     global timeInThisTrigger
     if not trigger and not timeInThisTrigger > 0:
         trigger = True
-        timeInThisTrigger = 7
+        timeInThisTrigger = 5
     if not trigger:
         timeInThisTrigger -= 1
     return "ok"
