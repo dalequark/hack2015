@@ -13,10 +13,10 @@ $(document).ready(function() {
     // sends yo to all subscribers;
     // to subscribe, simply "yo" at arousr
     // so this is definitely rate-limited, just an FYI
-    function yoyoyoyoyoyoyo() {
+    function yoyoyoyoyoyoyo(api_token) {
         var http = new XMLHttpRequest();
         var url = "https://api.justyo.co/yoall/";
-        var params = "api_token=ab28cb22-50ae-4d42-a21c-e9983a39f3e6";
+        var params = "api_token=" + api_token;
         http.open("POST", url, true);
 
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -31,7 +31,6 @@ $(document).ready(function() {
         http.send(params);
     }
 
-    document.update = updateArousalLevel;
     function updateArousalLevel(level) {
 
         // set background color
@@ -56,7 +55,8 @@ $(document).ready(function() {
               setAlarmColor();
               updatePicture();
               setInterval(setNormalColor, 80);
-              yoyoyoyoyoyoyo()
+              yoyoyoyoyoyoyo("ab28cb22-50ae-4d42-a21c-e9983a39f3e6");
+              yoyoyoyoyoyoyo("b7260e82-42c4-4f1a-aca8-34090fe7c925");
             }
 
         });
