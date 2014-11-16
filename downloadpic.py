@@ -26,7 +26,7 @@ def takePicsEvery(numSeconds, rootDir):
         filename = rootDir + '/' + dte + '.jpg'
         getCurrentImg(filename)
         time.sleep(numSeconds)
-        
+
         # for testing purposes only want to keep last 1000 files
         keepLast(rootDir, 1000)
 

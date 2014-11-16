@@ -1,6 +1,7 @@
 import serial
 import time
-SERIAL_PORT = "/dev/tty.usbmodem1411"
+#SERIAL_PORT = "/dev/tty.usbmodem1411"
+SERIAL_PORT = '/tmp/tty.LightBlue-Bean'
 FILE_SAVE = "./testdata.csv"
 ser = serial.Serial(SERIAL_PORT, 57600)
 

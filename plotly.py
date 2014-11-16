@@ -5,9 +5,13 @@ from plotly.graph_objs import *
 import numpy as np
 import random
 import sys, serial
-SERIAL = False
-#SERIAL_PORT = '/tmp/tty.LightBlue-Bean'
-SERIAL_PORT = '/dev/tty.usbmodem1411'
+
+FILE_SAVE = "test1"
+f = open(FILE_SAVE, 'w')
+SERIAL = True
+SERIAL_PORT = '/tmp/tty.LightBlue-Bean'
+#SERIAL_PORT = '/dev/tty.usbmodem1411'
+
 if SERIAL:
     ser = serial.Serial(SERIAL_PORT, 57600)
 
@@ -54,7 +58,7 @@ trace2 = Scatter(
 data = Data([trace1, trace2])
 
 # Add title to layout object
-layout = Layout(title='Arduino Data')
+layout = Layout(title='HeartBeat, EndoDermal Skin Response')
 
 # Make a figure object
 fig = Figure(data=data, layout=layout)
@@ -68,7 +72,7 @@ s1 = py.Stream(stream_ids[0])
 s2 = py.Stream(stream_ids[1])
 s1.open()
 s2.open()
-
+f = open(FILE_SAVE, 'w')
 SECOND_CHANNEL = False
 i = 0
 while True:
@@ -84,12 +88,14 @@ while True:
             print data1
             # sends data to plotly. ONly send it every 5 cycles because
             # plotly is too slow
-            if(i%5 == 0):   s1.write( dict( x=x, y= data1 ))
+            s1.write( dict( x=x, y= data1 ))
             i += 1
 
         if(SECOND_CHANNEL):
             if(line[1].isdigit()):
                 s2.write( dict(x=x, y=data2) )
+            print "%f, %f, %f" % (time.time(), data1, data2)
+            f.write("%f, %f, %f\n" % (time.time(), data1, data2))
     else:
         int1 =random.randint(0,10)
         int2 =random.randint(0,10)
