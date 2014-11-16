@@ -8,7 +8,7 @@ import sys, serial
 
 FILE_SAVE = "test1"
 f = open(FILE_SAVE, 'w')
-SERIAL = True
+SERIAL = False
 SERIAL_PORT = '/tmp/tty.LightBlue-Bean'
 #SERIAL_PORT = '/dev/tty.usbmodem1411'
 
@@ -55,16 +55,19 @@ trace2 = Scatter(
 
 )
 
-data = Data([trace1, trace2])
+data1 = Data([trace1])
+data2 = Data([trace2])
 
 # Add title to layout object
-layout = Layout(title='HeartBeat, EndoDermal Skin Response')
-
+layout1 = Layout(title='EndoDermal Skin Response')
+layout2 = Layout(title='Heartrate')
 # Make a figure object
-fig = Figure(data=data, layout=layout)
+fig1 = Figure(data=data1, layout=layout1)
+fig2 = Figure(data=data2, layout=layout2)
 
 # (@) Send fig to Plotly, initialize streaming plot, open new tab
-unique_url = py.plot(fig, filename='arduino data')
+unique_url1 = py.plot(fig1, filename='gsr')
+unique_url2 = py.plot(fig2, filename='heartrate')
 
 import datetime
 import time

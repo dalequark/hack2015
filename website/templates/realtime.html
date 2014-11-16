@@ -19,6 +19,15 @@
     }
   </style>
   <body>
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default">Real-Time</button>
+      <button type="button" class="btn btn-default">Saved</button>
+    </div>
+    <ul class="dropdown-menu" role="menu">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Regular link</a></li>
+      <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Disabled link</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another link</a></li>
+    </ul>
     <div id="container">
       <div id="top" style="text-align: center;">
         <h1><strong>Realtime Arousal Level:</strong> <span id="arousalLevel"></span></h1>
@@ -28,11 +37,12 @@
           <img id="image" width=800 />
         </div>
         <div class="col-md-6" style="padding: 20px">
-          <iframe width="800" height="450" frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~dalequark/2.embed?width=800&height=450"></iframe>
+          <iframe width="800" height="450" frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~dalequark/3.embed?width=800&height=600"></iframe>
+          <iframe width="800" height="450" frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~dalequark/4.embed?width=800&height=600"></iframe>
         </div>
       </div>
       <div id="bottom">
-        
+
       </div>
     </div>
   </body>
