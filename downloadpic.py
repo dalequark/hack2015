@@ -16,5 +16,6 @@ def takePicsEvery(numSeconds, rootDir):
         filename = rootDir + "/" + dte + ".jpg"
         getCurrentImg(filename)
         time.sleep(numSeconds)
+        print "Took pic"
 
-takePicsEvery(10,"./ippics", )
+takePicsEvery(2,"./ippics", )
