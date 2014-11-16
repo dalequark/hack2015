@@ -5,11 +5,13 @@ from plotly.graph_objs import *
 import numpy as np
 import random
 import sys, serial
+
 FILE_SAVE = "test1"
 f = open(FILE_SAVE, 'w')
 SERIAL = True
 SERIAL_PORT = '/tmp/tty.LightBlue-Bean'
 #SERIAL_PORT = '/dev/tty.usbmodem1411'
+
 if SERIAL:
     ser = serial.Serial(SERIAL_PORT, 57600)
 
