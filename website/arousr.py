@@ -6,11 +6,9 @@ app = Flask(__name__)
 def realtime():
     return render_template('realtime.html')
 
-# aroused on a scale of 1 to 10
-# 1 = green, 10 = red
 @app.route('/arousallevel/')
 def arousal_level():
-    return str(randint(1, 10))
+    return str(randint(0, 100))
 
 if __name__ == '__main__':
     app.run(debug=True)
