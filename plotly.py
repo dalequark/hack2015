@@ -5,7 +5,7 @@ from plotly.graph_objs import *
 import numpy as np
 import random
 import sys, serial
-SERIAL = True
+SERIAL = False
 #SERIAL_PORT = '/tmp/tty.LightBlue-Bean'
 SERIAL_PORT = '/dev/tty.usbmodem1411'
 if SERIAL:

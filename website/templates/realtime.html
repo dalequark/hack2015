@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>How aroused is ____?</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="../static/realtime.js"></script>
+  </head>
+  <style>
+    div#container {
+    width: 1800px;
+    margin: auto;
+    }
+    h1 {
+    font-size: 7em;
+    color: white;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <div id="top" style="text-align: center;">
+        <h1><strong>Realtime Arousal Level:</strong> <span id="arousalLevel"></span></h1>
+      </div>
+      <div id="middle">
+        <div class="col-md-6" style="text-align: center; padding: 20px;">
+          <img id="image" width=800 />
+        </div>
+        <div class="col-md-6" style="padding: 20px">
+          <iframe width="800" height="450" frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~dalequark/2.embed?width=800&height=450"></iframe>
+        </div>
+      </div>
+      <div id="bottom">
+        
+      </div>
+    </div>
+  </body>
+</html>
