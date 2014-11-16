@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     var MAX_LEVEL = 100;
     var gauge = new JustGage({
         id: "gauge",
@@ -7,7 +8,7 @@ $(document).ready(function() {
         max: MAX_LEVEL,
         title: "-",
     });
-    
+
     // http://docs.justyo.co/v1.0/docs/yoall
     // sends yo to all subscribers;
     // to subscribe, simply "yo" at arousr
@@ -17,11 +18,11 @@ $(document).ready(function() {
         var url = "https://api.justyo.co/yoall/";
         var params = "api_token=ab28cb22-50ae-4d42-a21c-e9983a39f3e6";
         http.open("POST", url, true);
-        
+
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.setRequestHeader("Content-length", params.length);
         http.setRequestHeader("Connection", "close");
-        
+
         http.onreadystatechange = function() {
             if(http.readyState == 4 && http.status == 200) {
                 alert(http.responseText);
@@ -30,19 +31,13 @@ $(document).ready(function() {
         http.send(params);
     }
 
+    document.update = updateArousalLevel;
     function updateArousalLevel(level) {
-        $("#arousalLevel").text(level);
 
         // set background color
         //r = (level / MAX_LEVEL) * 255;
         //g = ((MAX_LEVEL - level) / MAX_LEVEL) * 255;
-        //$("body").css("background-color", "rgb("+ Math.floor(r) + "," + Math.floor(g) + "," + "0)");
 
-        // put the call to yoyoyoyoyoyoyoyoyoyoyo() wherever you want there to be a yo
-        if (level > 95) {
-            yoyoyoyoyoyoyo();
-        }
-        
         gauge.refresh(level);
     }
 
@@ -51,19 +46,32 @@ $(document).ready(function() {
     }
 
     function mainLoop() {
-        $.get("./arousallevel/", function(data) {
+        $.get("./getarousallevel", function(data) {
+            console.log("Got data " + data);
             updateArousalLevel(data);
         });
-        updatePicture();
+        $.get("./isaroused", function(data) {
+          console.log("Got data " + data);
+            if(data == "True"){
+              updatePicture();
+              setAlarmColor();
+              setInterval(setNormalColor, 80);
+              yoyoyoyoyoyoyo()
+            }
+
+        });
+        //updatePicture();
+    }
+
+    function setNormalColor(){
+      $("body").css("background-color", '#B1B0B3');
+    }
+    function setAlarmColor(){
+      $("body").css("background-color", '#DF8700');
     }
 
     // main loop, omg this is so hacky doe
     mainLoop();
-  //  setInterval(mainLoop, 250);
+    setInterval(mainLoop, 250);
 
-    var num = null;
-    $(".btn-group > button.btn").on("click", function(){
-      num = this.innerHTML;
-      alert("Value is " + num);
-    });
 });
