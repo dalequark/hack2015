@@ -6,16 +6,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="../static/raphael.2.1.0.min.js"></script>
+    <script src="../static/justgage.1.0.1.js"></script>
     <script src="../static/realtime.js"></script>
   </head>
   <style>
+    body {
+    background-color: #aaaaaa;
+    }
     div#container {
     width: 1800px;
     margin: auto;
     }
     h1 {
     font-size: 7em;
-    color: white;
+    color: black;
     }
   </style>
   <body>
@@ -31,6 +36,7 @@
     <div id="container">
       <div id="top" style="text-align: center;">
         <h1><strong>Realtime Arousal Level:</strong> <span id="arousalLevel"></span></h1>
+        <div id="gauge" class="200x160px"></div>      
       </div>
       <div id="middle">
         <div class="col-md-6" style="text-align: center; padding: 20px;">

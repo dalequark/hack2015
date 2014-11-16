@@ -1,12 +1,22 @@
 $(document).ready(function() {
+    var MAX_LEVEL = 100;
+    var gauge = new JustGage({
+        id: "gauge",
+        value: 0,
+        min: 0,
+        max: MAX_LEVEL,
+        title: "-",
+    });
+    
     function updateArousalLevel(level) {
         $("#arousalLevel").text(level);
 
         // set background color
-        r = (level / 10) * 255;
-        g = ((10 - level) / 10) * 255;
+        //r = (level / MAX_LEVEL) * 255;
+        //g = ((MAX_LEVEL - level) / MAX_LEVEL) * 255;
+        //$("body").css("background-color", "rgb("+ Math.floor(r) + "," + Math.floor(g) + "," + "0)");
 
-        $("body").css("background-color", "rgb("+ Math.floor(r) + "," + Math.floor(g) + "," + "0)");
+        gauge.refresh(level);
     }
 
     function updatePicture() {
